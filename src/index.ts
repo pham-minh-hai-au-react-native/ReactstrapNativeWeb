@@ -1,3 +1,3 @@
-import {Demo} from './Demo/index';
-
-export {Demo};
+import {Container} from './Container/index';
+export * from './styles/index';
+export {Container};

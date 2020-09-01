@@ -10,13 +10,19 @@
 
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import {Demo} from 'reactstrap-native-web';
+import {Container} from './src';
 const App = () => {
   return (
     <>
       <View style={styles.container}>
-        <Text>Test</Text>
-        <Demo />
+        <Container>
+          <View>
+            <Text>Demo Container</Text>
+          </View>
+          <View>
+            <Text>Demo Container</Text>
+          </View>
+        </Container>
       </View>
     </>
   );

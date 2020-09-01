@@ -193,4 +193,6 @@ dist
 
 # Examples
 examples
+# Ingnore source directory
+src
 

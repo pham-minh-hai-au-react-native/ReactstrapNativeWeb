@@ -2,13 +2,16 @@ import React from 'react';
 import {StyleSheet, View, useWindowDimensions} from 'react-native';
 interface Props {
   children: React.ReactNode;
+  isFluid?: boolean;
 }
 export const Container: React.FC<Props> = ({
   children,
+  isFluid = false,
 }: Props): React.ReactElement => {
   const width: number = useWindowDimensions().width;
-  console.log('in ra width hien tai');
-  console.log(width);
+  if (isFluid) {
+    return <View style={styles.container}>{children}</View>;
+  }
   return (
     <>
       {width <= 576 ? (

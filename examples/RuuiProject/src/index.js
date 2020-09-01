@@ -1,13 +1,15 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {RuuiProvider, Tooltip} from 'react-universal-ui';
-import {Demo} from 'reactstrap-native-web';
+import {Container} from 'reactstrap-native-web';
+
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Test ruui</Text>
-      <Demo />
-    </View>
+    <Container isFluid>
+      <View>
+        <Text>sdadsadsadsa</Text>
+      </View>
+    </Container>
   );
 };
 function AppContainer(props) {

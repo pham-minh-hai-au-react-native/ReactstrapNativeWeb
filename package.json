@@ -5,8 +5,9 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "eslint ./src --ext .js,.jsx,.ts,.tsx && tsc --project tsconfig.json",
+    "build": "tsc --project tsconfig.json && eslint ./lib --ext .js,.jsx,.ts,.tsx --fix",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "pack": "npm run build && npm pack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,16 +28,16 @@
   },
   "homepage": "https://github.com/pham-minh-hai-au-react-native/ReactstrapNativeWeb#readme",
   "devDependencies": {
+    "@react-native-community/eslint-config": "^1.1.0",
     "@types/react": "^16.9.48",
     "@types/react-native": "^0.63.11",
-    "react": "16.13.1",
-    "react-native": "0.63.2",
-    "typescript": "^3.8.3",
-    "@react-native-community/eslint-config": "^1.1.0",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
     "eslint": "^6.5.1",
-    "prettier": "^2.0.4"
+    "prettier": "^2.0.4",
+    "react": "16.13.1",
+    "react-native": "0.63.2",
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "react": "16.13.1",
@@ -44,5 +45,6 @@
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "dependencies": {}
 }
