@@ -1,11 +1,11 @@
 {
   "name": "reactstrap-native-web",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "This is project create support reactstrap on react native web",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc --project tsconfig.json && eslint ./lib --ext .js,.jsx,.ts,.tsx --fix",
+    "build": "rimraf lib && tsc --project tsconfig.json && eslint ./lib --ext .js,.jsx,.ts,.tsx --fix",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "pack": "npm run build && npm pack",
     "test": "echo \"Error: no test specified\" && exit 1"
