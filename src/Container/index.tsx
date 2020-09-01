@@ -1,33 +1,66 @@
 import React from 'react';
-import {StyleSheet, View, useWindowDimensions} from 'react-native';
-interface Props {
+import {StyleSheet, View, useWindowDimensions, ViewStyle} from 'react-native';
+import {DebugProps} from '../types/index';
+interface Props extends DebugProps {
   children: React.ReactNode;
-  isFluid?: boolean;
+  fluid?: boolean;
 }
+
 export const Container: React.FC<Props> = ({
   children,
-  isFluid = false,
+  fluid = false,
+  debug = false,
 }: Props): React.ReactElement => {
   const width: number = useWindowDimensions().width;
-  if (isFluid) {
-    return <View style={styles.container}>{children}</View>;
+  const styleDebug = React.useRef<ViewStyle>({
+    borderWidth: 0,
+    borderColor: 'transparent',
+  });
+  if (debug) {
+    styleDebug.current = {
+      borderWidth: 1,
+      borderColor: 'black',
+    };
+  }
+  if (fluid) {
+    return (
+      <View style={[styles.container, styleDebug.current]}>{children}</View>
+    );
   }
   return (
     <>
       {width <= 576 ? (
-        <View style={[styles.container, styles.containerMobile]}>
+        <View
+          style={[
+            styles.container,
+            styles.containerMobile,
+            styleDebug.current,
+          ]}>
           {children}
         </View>
       ) : width <= 768 ? (
-        <View style={[styles.container, styles.containerTablet]}>
+        <View
+          style={[
+            styles.container,
+            styles.containerTablet,
+            styleDebug.current,
+          ]}>
           {children}
         </View>
       ) : width <= 992 ? (
-        <View style={[styles.container, styles.containerLaptop]}>
+        <View
+          style={[
+            styles.container,
+            styles.containerLaptop,
+            styleDebug.current,
+          ]}>
           {children}
         </View>
       ) : (
-        <View style={[styles.container, styles.containerPc]}>{children}</View>
+        <View
+          style={[styles.container, styles.containerPc, styleDebug.current]}>
+          {children}
+        </View>
       )}
     </>
   );
@@ -38,7 +71,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 15,
     marginHorizontal: 'auto',
-    backgroundColor: 'red',
+    borderWidth: 1,
   },
   containerMobile: {
     maxWidth: 540,

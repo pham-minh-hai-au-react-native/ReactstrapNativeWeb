@@ -1,15 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {RuuiProvider, Tooltip} from 'react-universal-ui';
-import {Container} from 'reactstrap-native-web';
+import {ContainerWithDebug} from './examples/Container/containerWithDebug';
 
 const App = () => {
   return (
-    <Container isFluid>
-      <View>
-        <Text>sdadsadsadsa</Text>
-      </View>
-    </Container>
+    <SafeAreaView style={{flex: 1}}>
+      <ContainerWithDebug />
+    </SafeAreaView>
   );
 };
 function AppContainer(props) {

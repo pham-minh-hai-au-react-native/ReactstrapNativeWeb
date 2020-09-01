@@ -195,4 +195,5 @@ dist
 examples
 # Ingnore source directory
 src
-
+# Image
+assets

@@ -9,30 +9,17 @@
  */
 
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import {Container} from './src';
+import {SafeAreaView} from 'react-native';
+import {ContainerWithDebug} from './src/examples/Container/containerWithDebug';
+
 const App = () => {
   return (
     <>
-      <View style={styles.container}>
-        <Container>
-          <View>
-            <Text>Demo Container</Text>
-          </View>
-          <View>
-            <Text>Demo Container</Text>
-          </View>
-        </Container>
-      </View>
+      <SafeAreaView>
+        <ContainerWithDebug />
+      </SafeAreaView>
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 export default App;

@@ -5,7 +5,8 @@ This is project create support library bootstrap on react native and react nativ
 * [Installation](#installation) 
 * [Container Component](#container-component)
     - [Usage](#usage)
-    - [Basic Example](#basic-example)
+    - [Document](#document)
+    - [Example with default container and enable debug](#example-with-default-container-and-enable-debug)
 * [Inspired by](#inspired-by)
 * [Contributing](#contributing)
 * [Author](#author)
@@ -26,19 +27,33 @@ npm i reactstrap-native-web@beta
 ```jsx
 import {Container} from 'reactstrap-native-web';
 ```
-### Basic Example
+### Document
+| Name      | Description                                                                       | Default | Type    |
+|:----------|:----------------------------------------------------------------------------------|:--------|:--------|
+|   fluid   | Support for full width container                                                  | false   | Boolean |
+|   debug   | Support debug for container component ( add border around container component )   | false   | Boolean |
+
+### Example with default container and enable `debug`
 ```jsx
+import React from 'react';
+import {View, Text} from 'react-native';
 import {Container} from 'reactstrap-native-web';
- const App = () => {
-   return (
-     <Container>
-       <View>
-         <Text>Container</Text>
-       </View>
-     </Container>
-   );
- };
+
+export const ContainerWithDebug = () => {
+  return (
+    <Container debug>
+      <View>
+        <Text>Container</Text>
+      </View>
+    </Container>
+  );
+};
+
 ```
+| On Web                                                                                                                                     |  On IOS                                                                                                                                       | On Android                                                                                                                                       |
+|:------------------------------------------------------------------------------------------------------------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------:|
+| ![](assets/container/example_container/web.gif) [containerWithDebug.js](examples/RuuiProject/src/examples/Container/containerWithDebug.js) | ![](assets/container/example_container/ios_11.png) [containerWithDebug.js](examples/RuuiProject/src/examples/Container/containerWithDebug.js) | ![](assets/container/example_container/android.png) [containerWithDebug.js](examples/RuuiProject/src/examples/Container/containerWithDebug.js)   |
+
 ## Inspired by
 [Library Reactstrap](https://reactstrap.github.io/)
 ## Contributing
