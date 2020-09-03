@@ -1,9 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, useWindowDimensions, ViewStyle} from 'react-native';
+import {View, useWindowDimensions} from 'react-native';
+import {styles} from './styles/index.style';
 import {DebugProps} from '../types/index';
+import {useDebug} from '../hooks/useDebug';
+type TypeContainer = 'sm' | 'md' | 'lg' | 'xl' | boolean;
 interface Props extends DebugProps {
   children: React.ReactNode;
-  fluid?: boolean;
+  fluid?: TypeContainer;
 }
 
 export const Container: React.FC<Props> = ({
@@ -12,21 +15,146 @@ export const Container: React.FC<Props> = ({
   debug = false,
 }: Props): React.ReactElement => {
   const width: number = useWindowDimensions().width;
-  const styleDebug = React.useRef<ViewStyle>({
-    borderWidth: 0,
-    borderColor: 'transparent',
-  });
-  if (debug) {
-    styleDebug.current = {
-      borderWidth: 1,
-      borderColor: 'black',
-    };
+  const styleDebug = useDebug(debug);
+  if (typeof fluid === 'boolean') {
+    if (fluid) {
+      return <View style={styles.container}>{children}</View>;
+    }
+  } else {
+    switch (fluid) {
+      case 'md':
+        return (
+          <>
+            {width <= 768 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerTablet,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : width <= 992 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerLaptop,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : width <= 1200 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerPc,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : (
+              <View style={[styles.container, styleDebug.current]}>
+                {children}
+              </View>
+            )}
+          </>
+        );
+      case 'lg':
+        return (
+          <>
+            {width <= 992 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerLaptop,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : width <= 1200 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerPc,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : (
+              <View style={[styles.container, styleDebug.current]}>
+                {children}
+              </View>
+            )}
+          </>
+        );
+      case 'xl':
+        return (
+          <>
+            {width <= 1200 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerPc,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : (
+              <View style={[styles.container, styleDebug.current]}>
+                {children}
+              </View>
+            )}
+          </>
+        );
+      default:
+        return (
+          <>
+            {width <= 576 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerMobile,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : width <= 768 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerTablet,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : width <= 992 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerLaptop,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : width <= 1200 ? (
+              <View
+                style={[
+                  styles.container,
+                  styles.containerPc,
+                  styleDebug.current,
+                ]}>
+                {children}
+              </View>
+            ) : (
+              <View style={[styles.container, styleDebug.current]}>
+                {children}
+              </View>
+            )}
+          </>
+        );
+    }
   }
-  if (fluid) {
-    return (
-      <View style={[styles.container, styleDebug.current]}>{children}</View>
-    );
-  }
+
   return (
     <>
       {width <= 576 ? (
@@ -56,33 +184,14 @@ export const Container: React.FC<Props> = ({
           ]}>
           {children}
         </View>
-      ) : (
+      ) : width <= 1200 ? (
         <View
           style={[styles.container, styles.containerPc, styleDebug.current]}>
           {children}
         </View>
+      ) : (
+        <View style={[styles.container, styleDebug.current]}>{children}</View>
       )}
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    paddingHorizontal: 15,
-    marginHorizontal: 'auto',
-    borderWidth: 1,
-  },
-  containerMobile: {
-    maxWidth: 540,
-  },
-  containerTablet: {
-    maxWidth: 720,
-  },
-  containerLaptop: {
-    maxWidth: 960,
-  },
-  containerPc: {
-    maxWidth: 1140,
-  },
-});

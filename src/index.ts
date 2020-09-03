@@ -1,3 +1,5 @@
 import {Container} from './Container/index';
+import {Row} from './Row/index';
+import {Col} from './Col/index';
 export * from './styles/index';
-export {Container};
+export {Container, Row, Col};
