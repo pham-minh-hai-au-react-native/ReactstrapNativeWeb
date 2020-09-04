@@ -38,6 +38,7 @@ export const buildTheme = (listTheme?: ListDynamicTheme): any => {
   console.log(getColors);
   console.log('in ra colors');
   console.log(colors);
+  console.log('demo');
 };
 export const layout = StyleSheet.create(Layout);
 
