@@ -1,4 +1,4 @@
-export const LayoutFollowParent = {
+export default {
   w0: {
     width: '0%',
   },

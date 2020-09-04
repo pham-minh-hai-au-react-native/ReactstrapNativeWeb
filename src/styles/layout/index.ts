@@ -1,5 +1,5 @@
-import {LayoutFollowParent} from './layoutFollowParent.style';
+import layoutFollowParent from './layoutFollowParent.style';
 
-export const Layout = {
-  ...LayoutFollowParent,
+export default {
+  ...layoutFollowParent,
 };
