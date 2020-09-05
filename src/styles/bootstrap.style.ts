@@ -1,5 +1,5 @@
 import Layout from './layout/index';
-import {ColorValue, StyleSheet, TextStyle} from 'react-native';
+import {ColorValue, StyleSheet, TextStyle, ViewStyle} from 'react-native';
 
 const upperFirstLetter = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -12,7 +12,9 @@ interface VariableColor {
 interface VariableTextColor {
   [key: string]: Required<Pick<TextStyle, 'color'>>;
 }
-
+interface VariableBackgroundColor {
+  [key: string]: Required<Pick<ViewStyle, 'backgroundColor'>>;
+}
 interface Color {
   colors: VariableColor;
 }
@@ -21,7 +23,11 @@ interface TextColor {
   textColor: VariableTextColor;
 }
 
-interface Theme extends Color, TextColor {}
+interface BackgroundColor {
+  bgColor: VariableBackgroundColor;
+}
+
+interface Theme extends Color, TextColor, BackgroundColor {}
 
 interface DynamicTheme extends Color {}
 
