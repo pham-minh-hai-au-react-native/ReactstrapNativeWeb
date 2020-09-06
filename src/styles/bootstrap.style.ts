@@ -12,9 +12,11 @@ interface VariableColor {
 interface VariableTextColor {
   [key: string]: Required<Pick<TextStyle, 'color'>>;
 }
+
 interface VariableBackgroundColor {
   [key: string]: Required<Pick<ViewStyle, 'backgroundColor'>>;
 }
+
 interface Color {
   colors: VariableColor;
 }
@@ -47,26 +49,39 @@ const theme: DynamicTheme = {
 export const buildTheme = (listTheme?: ListDynamicTheme): ListTheme => {
   const result: ListTheme = {};
   if (listTheme === undefined) {
-    result.default = {colors: {}, textColor: {}};
+    result.default = {colors: {}, textColor: {}, bgColor: {}};
     result.default.colors = theme.colors;
     for (const propertyColor in theme.colors) {
       result.default.textColor[`text${upperFirstLetter(propertyColor)}`] = {
         color: theme.colors[propertyColor],
       };
+      result.default.bgColor[`bg${upperFirstLetter(propertyColor)}`] = {
+        backgroundColor: theme.colors[propertyColor],
+      };
     }
     return result;
   }
-  listTheme.default.colors = listTheme.hasOwnProperty('default')
-    ? {...listTheme.default.colors, ...theme.colors}
-    : theme.colors;
+  if (listTheme.hasOwnProperty('default')) {
+    listTheme.default.colors = {...listTheme.default.colors, ...theme.colors};
+  } else {
+    listTheme.default = {colors: {}};
+    listTheme.default.colors = theme.colors;
+  }
 
   for (const propertyTheme in listTheme) {
-    result[propertyTheme] = {...listTheme[propertyTheme], ...{textColor: {}}};
+    result[propertyTheme] = {
+      ...listTheme[propertyTheme],
+      ...{textColor: {}},
+      ...{bgColor: {}},
+    };
     for (const propertyColor in listTheme[propertyTheme].colors) {
       result[propertyTheme].textColor[
         `text${upperFirstLetter(propertyColor)}`
       ] = {
         color: listTheme[propertyTheme].colors[propertyColor],
+      };
+      result[propertyTheme].bgColor[`bg${upperFirstLetter(propertyColor)}`] = {
+        backgroundColor: listTheme[propertyTheme].colors[propertyColor],
       };
     }
   }
