@@ -1,10 +1,16 @@
 import React from 'react';
-import {Dimensions, FlatList, ScrollView, Text, View} from 'react-native';
-import {Container, Row, Col, Image, layout} from 'reactstrap-native-web';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {
+  Container,
+  Row,
+  Col,
+  Image,
+  layout,
+  buildTheme,
+} from 'reactstrap-native-web';
+const result = buildTheme();
+const bootstrap = StyleSheet.create(result.default.styleSheet);
 export const PageDemo1 = () => {
-  const getLayout = (event) => {
-    console.log(event.nativeEvent.layout.height);
-  };
   const renderItem = () => {
     return (
       <Row>
@@ -16,7 +22,7 @@ export const PageDemo1 = () => {
           <Text>Include content</Text>
           <Text>Include content</Text>
           <Text>Include content</Text>
-          <View style={layout.w60}>
+          <View style={[layout.w60, bootstrap.bgPrimary]}>
             <Text>Include content</Text>
           </View>
         </Col>
