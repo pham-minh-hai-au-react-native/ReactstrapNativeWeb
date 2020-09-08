@@ -8,8 +8,16 @@ import {
   layout,
   buildTheme,
 } from 'reactstrap-native-web';
-const result = buildTheme();
+const result = buildTheme({
+  lightTheme: {
+    colors: {
+      primary: 'red',
+    },
+  },
+});
 const bootstrap = StyleSheet.create(result.default.styleSheet);
+const lightTheme = StyleSheet.create(result.lightTheme.styleSheet);
+console.log(result.default.styleSheet.w60);
 export const PageDemo1 = () => {
   const renderItem = () => {
     return (
@@ -22,8 +30,8 @@ export const PageDemo1 = () => {
           <Text>Include content</Text>
           <Text>Include content</Text>
           <Text>Include content</Text>
-          <View style={[layout.w60, bootstrap.bgPrimary]}>
-            <Text>Include content</Text>
+          <View style={[bootstrap.w60, bootstrap.bgPrimary]}>
+            <Text style={lightTheme.textPrimary}>Include content</Text>
           </View>
         </Col>
         <Col col={'4'} sm={{size: '12'}} md={{size: '6'}}>

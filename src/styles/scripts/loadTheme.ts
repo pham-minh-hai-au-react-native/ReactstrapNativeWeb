@@ -1,6 +1,6 @@
 import {ListDynamicTheme, ListTheme} from '../types/index';
 import theme from '../theme.style';
-import {upperFirstLetter} from '../../utils/index';
+import {mergeDeep, upperFirstLetter} from '../../utils/index';
 const SPACER = 16;
 export default (listTheme?: ListDynamicTheme): ListTheme => {
   const result: ListTheme = {};
@@ -289,21 +289,11 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
         borderColor: theme.colors[propertyColor],
       };
     }
-    result.default.styleSheet = {
-      ...result.default.bgColor,
-      ...result.default.textColor,
-      ...result.default.borderColor,
-      ...result.default.paddingSpacer,
-      ...result.default.marginSpacer,
-    };
     return result;
   }
-  listTheme.default.colors = listTheme.hasOwnProperty('default')
-    ? {...theme.colors, ...listTheme.default.colors}
-    : theme.colors;
-  listTheme.default.spacer = listTheme.hasOwnProperty('default')
-    ? listTheme.default.spacer
-    : theme.spacer;
+  listTheme.default = listTheme.hasOwnProperty('default')
+    ? mergeDeep(theme, listTheme.default)
+    : theme;
   for (const propertyTheme in listTheme) {
     const spacerDefault = listTheme[propertyTheme].spacer ?? SPACER;
     const spacer0 = 0;
@@ -592,13 +582,6 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
         borderColor: listTheme[propertyTheme].colors[propertyColor],
       };
     }
-    result[propertyTheme].styleSheet = {
-      ...result[propertyTheme].bgColor,
-      ...result[propertyTheme].textColor,
-      ...result[propertyTheme].borderColor,
-      ...result[propertyTheme].paddingSpacer,
-      ...result[propertyTheme].marginSpacer,
-    };
   }
   return result;
 };

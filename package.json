@@ -8,7 +8,7 @@
     "build": "rimraf lib && tsc --project tsconfig.json && eslint ./lib --ext .js,.jsx,.ts,.tsx --fix",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "pack": "npm run build && npm pack",
-    "test": "jest",
+    "test": "jest --no-cache",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "repository": {
