@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
-import {DebugView, DebugProps} from '../../styles/components/debug.style';
+import {DebugView} from '../../../styles/components/debug.style';
+import {DebugProps} from '../../../types/index';
 interface ContainerProps extends DebugProps {
   width: number;
 }

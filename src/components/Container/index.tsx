@@ -7,7 +7,7 @@ import {
   ContainerXL,
   Container as ContainerSM,
 } from './styles/index.style';
-import {DebugProps} from '../types/index';
+import {DebugProps} from '../../types';
 
 type TypeContainer = 'sm' | 'md' | 'lg' | 'xl' | boolean;
 interface Props extends DebugProps {

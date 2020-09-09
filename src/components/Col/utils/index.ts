@@ -1,4 +1,4 @@
-import {CommonNumberColumn, NumberOffsetColumn} from '../types/index';
+import {CommonNumberColumn, NumberOffsetColumn} from '../types';
 
 export const convertNumberColumnToPercent = (
   number: CommonNumberColumn,

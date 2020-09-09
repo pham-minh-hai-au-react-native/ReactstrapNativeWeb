@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, useWindowDimensions} from 'react-native';
-import {DebugProps} from '../types/index';
-import {useDebug} from '../hooks/useDebug';
-import {TypeCol, TypeColOptional} from './types/index';
+import {DebugProps} from '../../types';
+import {useDebug} from '../../hooks/useDebug';
+import {TypeCol, TypeColOptional} from './types';
 import {useStyle} from './hooks/useStyle';
 
 interface Props extends DebugProps {

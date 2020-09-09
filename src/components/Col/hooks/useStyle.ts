@@ -1,7 +1,7 @@
 import React, {MutableRefObject} from 'react';
 import {ViewStyle} from 'react-native';
-import {TypeCol, TypeColOptional} from '../types/index';
-import {getStyleColumn, getStyleOffset} from '../utils/index';
+import {TypeCol, TypeColOptional} from '../types';
+import {getStyleColumn, getStyleOffset} from '../utils';
 export interface StyleCol {
   size: ViewStyle;
   offset: ViewStyle;
