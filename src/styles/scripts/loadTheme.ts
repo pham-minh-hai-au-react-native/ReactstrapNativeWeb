@@ -1,7 +1,103 @@
-import {ListDynamicTheme, ListTheme} from '../types/index';
+import {ListDynamicTheme, ListTheme, VariableBorderColor} from '../types/index';
 import theme from '../theme.style';
 import {mergeDeep, upperFirstLetter} from '../../utils/index';
+import {ColorValue} from 'react-native';
 const SPACER = 16;
+const getListStyleBorderWithColor = (
+  key: string,
+  color: ColorValue,
+): VariableBorderColor => {
+  const result: VariableBorderColor = {};
+  const keyUpperFirstLetter = upperFirstLetter(key);
+  result[`border${keyUpperFirstLetter}`] = {
+    borderColor: color,
+  };
+  result[`borderFull${keyUpperFirstLetter}`] = {
+    borderWidth: 1,
+    borderColor: color,
+    borderStyle: 'solid',
+  };
+  result[`borderTop${keyUpperFirstLetter}`] = {
+    borderTopColor: color,
+    borderTopWidth: 1,
+    borderStyle: 'solid',
+  };
+  result[`borderRight${keyUpperFirstLetter}`] = {
+    borderRightColor: color,
+    borderRightWidth: 1,
+    borderStyle: 'solid',
+  };
+  result[`borderBottom${keyUpperFirstLetter}`] = {
+    borderBottomColor: color,
+    borderBottomWidth: 1,
+    borderStyle: 'solid',
+  };
+  result[`borderLeft${keyUpperFirstLetter}`] = {
+    borderLeftColor: color,
+    borderLeftWidth: 1,
+    borderStyle: 'solid',
+  };
+  return result;
+};
+const getListBorderWidthWithSpacer = (spacer: number): VariableBorderColor => {
+  const result: VariableBorderColor = {};
+  for (let i = 0; i <= spacer; i++) {
+    result[`border${i}`] = {borderWidth: i};
+    result[`borderX${i}`] = {
+      borderRightWidth: i,
+      borderLeftWidth: i,
+    };
+    result[`borderY${i}`] = {
+      borderTopWidth: i,
+      borderBottomWidth: i,
+    };
+    result[`borderT${i}`] = {borderTopWidth: i};
+    result[`borderR${i}`] = {borderRightWidth: i};
+    result[`borderB${i}`] = {borderBottomWidth: i};
+    result[`borderL${i}`] = {borderLeftWidth: i};
+    result[`borderE${i}`] = {borderEndWidth: i};
+    result[`borderS${i}`] = {borderStartWidth: i};
+  }
+  return result;
+};
+const getListRoundedBorder = (spacer: number): VariableBorderColor => {
+  return {
+    roundedSm: {
+      borderRadius: spacer * 0.2,
+    },
+    rounded: {
+      borderRadius: spacer * 0.25,
+    },
+    roundedTop: {
+      borderTopLeftRadius: spacer * 0.25,
+      borderTopRightRadius: spacer * 0.25,
+    },
+    roundedRight: {
+      borderTopRightRadius: spacer * 0.25,
+      borderBottomRightRadius: spacer * 0.25,
+    },
+    roundedBottom: {
+      borderBottomRightRadius: spacer * 0.25,
+      borderBottomLeftRadius: spacer * 0.25,
+    },
+    roundedLeft: {
+      borderBottomLeftRadius: spacer * 0.25,
+      borderTopLeftRadius: spacer * 0.25,
+    },
+    roundedLg: {
+      borderRadius: spacer * 0.3,
+    },
+    roundedCircle: {
+      borderRadius: 99999,
+    },
+    roundedPill: {
+      borderRadius: spacer * 50,
+    },
+    rounded0: {
+      borderRadius: 0,
+    },
+  };
+};
 export default (listTheme?: ListDynamicTheme): ListTheme => {
   const result: ListTheme = {};
 
@@ -18,7 +114,7 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
       colors: {},
       textColor: {},
       bgColor: {},
-      borderColor: {},
+      borderColor: getListRoundedBorder(spacerDefault),
       marginSpacer: {
         m0: {
           margin: spacer0,
@@ -285,8 +381,12 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
       result.default.bgColor[`bg${upperFirstLetter(propertyColor)}`] = {
         backgroundColor: theme.colors[propertyColor],
       };
-      result.default.borderColor[`border${upperFirstLetter(propertyColor)}`] = {
-        borderColor: theme.colors[propertyColor],
+      result.default.borderColor = {
+        ...result.default.borderColor,
+        ...getListStyleBorderWithColor(
+          propertyColor,
+          theme.colors[propertyColor],
+        ),
       };
     }
     return result;
@@ -307,7 +407,7 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
       ...{
         textColor: {},
         bgColor: {},
-        borderColor: {},
+        borderColor: getListRoundedBorder(spacerDefault),
         marginSpacer: {
           m0: {
             margin: spacer0,
@@ -576,10 +676,12 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
       result[propertyTheme].bgColor[`bg${upperFirstLetter(propertyColor)}`] = {
         backgroundColor: listTheme[propertyTheme].colors[propertyColor],
       };
-      result[propertyTheme].borderColor[
-        `border${upperFirstLetter(propertyColor)}`
-      ] = {
-        borderColor: listTheme[propertyTheme].colors[propertyColor],
+      result[propertyTheme].borderColor = {
+        ...result[propertyTheme].borderColor,
+        ...getListStyleBorderWithColor(
+          propertyColor,
+          listTheme[propertyTheme].colors[propertyColor],
+        ),
       };
     }
   }

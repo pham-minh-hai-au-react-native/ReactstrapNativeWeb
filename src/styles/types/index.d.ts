@@ -14,7 +14,33 @@ export interface VariableBackgroundColor {
 }
 
 export interface VariableBorderColor {
-  [key: string]: Required<Pick<ViewStyle, 'borderColor'>>;
+  [key: string]: Pick<
+    ViewStyle,
+    | 'borderBottomColor'
+    | 'borderBottomEndRadius'
+    | 'borderBottomLeftRadius'
+    | 'borderBottomRightRadius'
+    | 'borderBottomStartRadius'
+    | 'borderBottomWidth'
+    | 'borderColor'
+    | 'borderEndColor'
+    | 'borderLeftColor'
+    | 'borderLeftWidth'
+    | 'borderRadius'
+    | 'borderRightColor'
+    | 'borderRightWidth'
+    | 'borderStartColor'
+    | 'borderStyle'
+    | 'borderTopColor'
+    | 'borderTopEndRadius'
+    | 'borderTopLeftRadius'
+    | 'borderTopRightRadius'
+    | 'borderTopStartRadius'
+    | 'borderTopWidth'
+    | 'borderWidth'
+    | 'borderEndWidth'
+    | 'borderStartWidth'
+  >;
 }
 
 export interface VariableMargin {
@@ -126,6 +152,7 @@ export interface BackgroundColor {
 export interface MarginSpacer {
   marginSpacer: VariableMargin;
 }
+
 export interface PaddingSpacer {
   paddingSpacer: VariablePadding;
 }

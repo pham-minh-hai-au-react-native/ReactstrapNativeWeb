@@ -1,9 +1,8 @@
 import Layout from './layout/index';
-import {StyleSheet} from 'react-native';
+import Border from './border/index';
 import loadTheme from './scripts/loadTheme';
 import {ListDynamicTheme, ListTheme} from './types';
 
-export const layout = StyleSheet.create(Layout);
 export const buildTheme = (listTheme?: ListDynamicTheme) => {
   const themes: ListTheme = loadTheme(listTheme);
   for (const theme in themes) {
@@ -14,6 +13,15 @@ export const buildTheme = (listTheme?: ListDynamicTheme) => {
       ...themes[theme].paddingSpacer,
       ...themes[theme].marginSpacer,
       ...Layout,
+      ...Border,
+      ...{
+        flex: {
+          display: 'flex',
+        },
+        hidden: {
+          display: 'none',
+        },
+      },
     };
   }
   return themes;

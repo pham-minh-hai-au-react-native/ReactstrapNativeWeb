@@ -140,11 +140,11 @@ import {Col} from 'reactstrap-native-web';
 ### Document
  Name      | Description                                                                       | Default | Type    | Required |
 |:---------|:----------------------------------------------------------------------------------|:--------|:--------|:---------|
-|   col    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Object | true |
-|   sm    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Object | false |
-|   md    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Object | false |
-|   xl    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Object | false |
-|   lg    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Object | false |
+|   col    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | true |
+|   sm    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | false |
+|   md    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | false |
+|   xl    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | false |
+|   lg    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | false |
 |   debug   | Support debug    | false   | Boolean | false |
 ### Example
 ```jsx

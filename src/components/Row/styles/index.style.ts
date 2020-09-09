@@ -1,4 +1,4 @@
-import {DebugView} from '../../../styles/components/debug.style';
+import {DebugView} from '../../../styles/components/index';
 import styled from 'styled-components/native';
 
 export const Row = styled(DebugView)`
