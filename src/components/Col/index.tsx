@@ -1,9 +1,22 @@
 import React from 'react';
-import {View, useWindowDimensions} from 'react-native';
+import {useWindowDimensions} from 'react-native';
 import {DebugProps} from '../../types';
-import {useDebug} from '../../hooks/useDebug';
 import {TypeCol, TypeColOptional} from './types';
-import {useStyle} from './hooks/useStyle';
+import {
+  ColAuto,
+  Col1,
+  Col2,
+  Col3,
+  Col4,
+  Col5,
+  Col6,
+  Col7,
+  Col8,
+  Col9,
+  Col10,
+  Col11,
+  Col12,
+} from './styles/index.style';
 
 interface Props extends DebugProps {
   col: TypeCol;
@@ -14,9 +27,39 @@ interface Props extends DebugProps {
   children: React.ReactNode;
 }
 
+const colComponents: any = {
+  colauto: ColAuto,
+  col1: Col1,
+  col2: Col2,
+  col3: Col3,
+  col4: Col4,
+  col5: Col5,
+  col6: Col6,
+  col7: Col7,
+  col8: Col8,
+  col9: Col9,
+  col10: Col10,
+  col11: Col11,
+  col12: Col12,
+};
+const getCol = (col: TypeCol | TypeColOptional) => {
+  let Component: any;
+  let offset;
+  if (typeof col === 'string' || typeof col === 'number') {
+    const key = `col${col}`;
+    Component = colComponents[key];
+  } else {
+    const key = `col${col.size}`;
+    offset = col.offset ?? undefined;
+    Component = colComponents[key];
+  }
+  return {
+    component: Component,
+    offset: offset,
+  };
+};
 export const Col: React.FC<Props> = ({
   children,
-  debug = false,
   col,
   xl,
   lg,
@@ -24,41 +67,35 @@ export const Col: React.FC<Props> = ({
   sm,
 }): React.ReactElement => {
   const width: number = useWindowDimensions().width;
-  const styleDebug = useDebug(debug);
-  const styleCol = useStyle(col);
-  const styleLG = useStyle(lg);
-  const styleXL = useStyle(xl);
-  const styleMD = useStyle(md);
-  const styleSM = useStyle(sm);
-  const styleCommon = [
-    styleCol.current.size,
-    styleCol.current.offset,
-    styleDebug.current,
-  ];
+  const commonCol = getCol(col);
+  const colXL = xl ? getCol(xl) : commonCol;
+  const colLG = lg ? getCol(lg) : commonCol;
+  const colMD = md ? getCol(md) : commonCol;
+  const colSM = sm ? getCol(sm) : commonCol;
+
+  const ComponentCol = commonCol.component;
+  const ComponentXL = colXL.component;
+  const ComponentLG = colLG.component;
+  const ComponentMD = colMD.component;
+  const ComponentSM = colSM.component;
+
+  const offsetCol = commonCol.offset;
+  const offsetXL = colXL.offset ?? offsetCol;
+  const offsetLG = colLG.offset ?? offsetCol;
+  const offsetMD = colMD.offset ?? offsetCol;
+  const offsetSM = colSM.offset ?? offsetCol;
   return (
     <>
       {width <= 576 ? (
-        <View
-          style={[styleCommon, styleSM.current.size, styleSM.current.offset]}>
-          {children}
-        </View>
+        <ComponentSM offset={offsetSM}>{children}</ComponentSM>
       ) : width <= 768 ? (
-        <View
-          style={[styleCommon, styleMD.current.size, styleMD.current.offset]}>
-          {children}
-        </View>
+        <ComponentMD offset={offsetMD}>{children}</ComponentMD>
       ) : width <= 992 ? (
-        <View
-          style={[styleCommon, styleLG.current.size, styleLG.current.offset]}>
-          {children}
-        </View>
+        <ComponentLG offset={offsetLG}>{children}</ComponentLG>
       ) : width <= 1200 ? (
-        <View
-          style={[styleCommon, styleXL.current.size, styleXL.current.offset]}>
-          {children}
-        </View>
+        <ComponentXL offset={offsetXL}>{children}</ComponentXL>
       ) : (
-        <View style={styleCommon}>{children}</View>
+        <ComponentCol offset={offsetCol}>{children}</ComponentCol>
       )}
     </>
   );

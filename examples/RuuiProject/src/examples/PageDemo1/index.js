@@ -23,7 +23,7 @@ export const PageDemo1 = () => {
     const {index} = info;
     return (
       <Row key={index}>
-        <Col col={'4'} sm={{size: '12'}} md={{size: '6'}}>
+        <Col col={4} sm={{size: 12}} md={{size: 6}}>
           <Text>Include content</Text>
           <Text>Include content</Text>
           <Text>Include content</Text>
@@ -35,7 +35,10 @@ export const PageDemo1 = () => {
             <Text style={lightTheme.textPrimary}>Include content</Text>
           </View>
         </Col>
-        <Col col={'4'} sm={{size: '12'}} md={{size: '6'}}>
+        <Col
+          col={{size: 3, offset: 1}}
+          sm={{size: 6, offset: 6}}
+          md={{size: 3, offset: 3}}>
           <Image
             source={{
               uri:
@@ -43,7 +46,7 @@ export const PageDemo1 = () => {
             }}
           />
         </Col>
-        <Col col={'4'} sm={{size: '12'}} md={{size: '6'}}>
+        <Col col={4} sm={{size: 12}} md={{size: '6'}}>
           <Image
             resizeMode={'contain'}
             source={{
