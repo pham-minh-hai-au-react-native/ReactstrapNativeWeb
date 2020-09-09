@@ -1,11 +1,7 @@
 export const upperFirstLetter = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
-/**
- * Simple object check.
- * @param item
- * @returns {boolean}
- */
+
 export const isObject = (item: any): boolean => {
   return item && typeof item === 'object' && !Array.isArray(item);
 };
@@ -30,4 +26,10 @@ export const mergeDeep = (target: any, ...sources: any): any => {
   }
 
   return mergeDeep(target, ...sources);
+};
+export const randomColor = (): string => {
+  const red: number = Math.floor(Math.random() * 255);
+  const green: number = Math.floor(Math.random() * 255);
+  const blue: number = Math.floor(Math.random() * 255);
+  return `rgb(${red}, ${green}, ${blue})`;
 };

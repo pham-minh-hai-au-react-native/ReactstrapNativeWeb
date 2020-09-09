@@ -19,9 +19,10 @@ const bootstrap = StyleSheet.create(result.default.styleSheet);
 const lightTheme = StyleSheet.create(result.lightTheme.styleSheet);
 console.log(result.default.styleSheet.w60);
 export const PageDemo1 = () => {
-  const renderItem = () => {
+  const renderItem = (info) => {
+    const {index} = info;
     return (
-      <Row>
+      <Row key={index}>
         <Col col={'4'} sm={{size: '12'}} md={{size: '6'}}>
           <Text>Include content</Text>
           <Text>Include content</Text>
@@ -55,10 +56,9 @@ export const PageDemo1 = () => {
     );
   };
   return (
-    <Container>
-      <View style={{flex: 1, flexDirection: 'row'}}>
-        <FlatList data={['item']} renderItem={renderItem} />
-      </View>
+    <Container fluid debug>
+      <FlatList data={['item']} renderItem={renderItem} />
+      <Text>show ne</Text>
     </Container>
   );
 };

@@ -7,10 +7,7 @@ const randomColor = () => {
   return `rgb(${red}, ${green}, ${blue})`;
 };
 export const useDebug = (debug: boolean): MutableRefObject<ViewStyle> => {
-  const styleDebug = React.useRef<ViewStyle>({
-    borderWidth: 0,
-    borderColor: 'transparent',
-  });
+  const styleDebug = React.useRef<ViewStyle>({});
   if (debug) {
     styleDebug.current = {
       borderWidth: 1,

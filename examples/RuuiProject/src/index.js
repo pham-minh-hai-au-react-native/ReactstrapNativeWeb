@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {RuuiProvider, Tooltip} from 'react-universal-ui';
-import {ContainerWithDebug} from './examples/Container/containerWithDebug';
-import {TestColumn} from './examples/Col/demo';
+// import {ContainerWithDebug} from './examples/Container/containerWithDebug';
+// import {TestColumn} from './examples/Col/demo';
 import {PageDemo1} from './examples/PageDemo1';
 
 const App = () => {

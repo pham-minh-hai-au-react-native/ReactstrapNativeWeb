@@ -1,21 +1,32 @@
-import {StyleSheet} from 'react-native';
-
-export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    // paddingHorizontal: 15,
-    marginHorizontal: 'auto',
-  },
-  containerMobile: {
-    maxWidth: 540,
-  },
-  containerTablet: {
-    maxWidth: 720,
-  },
-  containerLaptop: {
-    maxWidth: 960,
-  },
-  containerPc: {
-    maxWidth: 1140,
-  },
-});
+import styled from 'styled-components/native';
+import {DebugView, DebugProps} from '../../styles/components/debug.style';
+interface ContainerProps extends DebugProps {
+  width: number;
+}
+export const FluidContainer = styled(DebugView)`
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+`;
+export const Container = styled(FluidContainer)<ContainerProps>`
+  max-width: ${({width}) =>
+    width <= 576
+      ? 540
+      : width <= 768
+      ? 720
+      : width <= 992
+      ? 960
+      : width < 1200
+      ? 1140
+      : width};
+`;
+export const ContainerMD = styled(FluidContainer)<ContainerProps>`
+  max-width: ${({width}) =>
+    width <= 768 ? 720 : width <= 992 ? 960 : width < 1200 ? 1140 : width};
+`;
+export const ContainerLG = styled(FluidContainer)<ContainerProps>`
+  max-width: ${({width}) => (width <= 992 ? 960 : width < 1200 ? 1140 : width)};
+`;
+export const ContainerXL = styled(FluidContainer)<ContainerProps>`
+  max-width: ${({width}) => (width < 1200 ? 1140 : width)};
+`;
