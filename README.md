@@ -13,6 +13,26 @@ This is project create support library bootstrap on react native and react nativ
     - [Padding](#padding)
     - [Margin](#margin)
     - [Width and Height](#width-and-height)
+    - [Display](#display)
+    - [Overflow](#overflow)
+    - [Position](#position)
+    - [ZIndex](#zindex)
+    - [Font Size](#font-size)
+    - [Font Weight](#font-weight)
+    - [Letter Spacing](#letter-spacing)
+    - [Line Height](#line-height)
+    - [Text Align](#text-align)
+    - [Text Decoration](#text-decoration)
+    - [Text Transform](#text-transform)
+    - [Flex Direction](#flex-direction)
+    - [Flex Wrap](#flex-wrap)
+    - [Align Items](#align-items)
+    - [Align Content](#align-content)
+    - [Align Self](#align-self)
+    - [Justify Content](#justify-content)
+    - [Flex](#flex)
+    - [Flex Grow](#flex-grow)
+    - [Flex Shrink](flex-shrink)
 * [Container Component](#container-component)
     - [Usage](#usage)
     - [Document](#document)
@@ -430,6 +450,165 @@ npm i reactstrap-native-web@beta
    ```
 ### Width and Height
    - Inspiration from library [react-native-tailwindcss](https://tvke.github.io/react-native-tailwindcss/sizing/width.html)
+### Display
+| Class  | Properties       |
+|:-------|:-----------------|
+| flex   | display: 'flex'  |      
+| hidden | display: 'none'  | 
+### Overflow
+| Class             | Properties            |
+|:------------------|:----------------------|
+| overflowVisible   | overflow: 'visible'   |
+| overflowHidden    | overflow: 'hidden'    |
+### Position
+| Class     | Properties                                |
+|:----------|:------------------------------------------|
+| relative  | position: 'relative'                      |
+| absolute  | position: 'absolute'                      |
+| inset0    | top: 0, bottom: 0, left: 0, right: 0      |
+| insetY0   | top: 0, bottom: 0                         | 
+| insetX0   | left: 0, right: 0                         |
+| top0      | top: 0                                    |
+| right0    | right: 0                                  |
+| bottom0   | bottom: 0                                 |
+| left0     | left: 0                                   |
+### ZIndex
+| Class | Properties    | 
+|:------|:--------------|
+| z0    | zIndex: 0     |
+| z10   | zIndex: 10    |
+| z20   | zIndex: 20    |
+| z30   | zIndex: 30    |
+| z40   | zIndex: 50    |
+| z50   | zIndex: 50    |
+### Font Size
+| Class     | Properties    |
+|:----------|:--------------|
+| textXs    | fontSize: 12  | 
+| textSm	| fontSize: 14  |
+| textBase	| fontSize: 16  |
+| textLg	| fontSize: 18  |
+| textXl	| fontSize: 20  |
+| text2xl	| fontSize: 24  |
+| text3xl	| fontSize: 30  |
+| text4xl	| fontSize: 36  |
+| text5xl	| fontSize: 48  |
+| text6xl	| fontSize: 64  |
+### Font Weight
+| Class         | Properties            |
+|:--------------|:----------------------|
+| fontHairline  | fontWeight: 100       |
+| fontThin	    | fontWeight: 200       |
+| fontLight     | fontWeight: 300       |
+| fontNormal	| fontWeight: 'normal'  |
+| fontMedium	| fontWeight: 500       |
+| fontSemibold	| fontWeight: 600       |
+| fontBold      | fontWeight: 'bold'    |
+| fontExtrabold | fontWeight: 800       |
+| fontBlack     | fontWeight: 900       |
+### Letter Spacing
+| Class	            | Properties            |
+|:------------------|:----------------------|
+| trackingTighter   | letterSpacing: -0.8   |
+| trackingTight	    | letterSpacing: -0.4   |
+| trackingNormal	| letterSpacing: 0      |
+| trackingWide	    | letterSpacing: 0.4    |
+| trackingWider	    | letterSpacing: 0.8    |
+| trackingWidest	| letterSpacing: 1.6    |
+### Line Height
+| Class 	        | Properties        |
+|:------------------|:------------------|
+| leadingNone	    | lineHeight: 1     |
+| leadingTight	    | lineHeight: 1.25  |
+| leadingSnug	    | lineHeight: 1.375 |
+| leadingNormal	    | lineHeight: 1.5   |
+| leadingRelaxed    | lineHeight: 1.625 |
+| leadingLoose	    | lineHeight: 2     |
+### Text Align
+| Class	        | Properties            |
+|:--------------|:----------------------|
+| textAuto	    | textAlign: auto       |
+| textLeft	    | textAlign: left       |
+| textRight	    | textAlign: right      |
+| textCenter	| textAlign: center     |
+| textJustify   | textAlign: justify    |
+### Text Decoration
+| Class	                | Properties                                    |
+|:----------------------|:----------------------------------------------|
+| noUnderline	        | textDecorationLine: 'none'                    |
+| underline	            | textDecorationLine: 'underline'               |
+| lineThrough	        | textDecorationLine: 'line-through'            |
+| underlineLineThrough  | textDecorationLine: 'underline line-through'  |
+### Text Transform
+| Class	        | Properties                    |
+|:--------------|:------------------------------|
+| normalCase	| textTransform: 'none'         |
+| uppercase	    | textTransform: 'uppercase'    |
+| lowercase	    | textTransform: 'lowercase'    |
+| capitalize    | textTransform: 'capitalize'   |
+### Flex Direction
+| Class	            | Properties                        |
+|:------------------|:----------------------------------|
+| flexRow	        | flexDirection: 'row'              |
+| flexRowReverse    | flexDirection: 'row-reverse'      |
+| flexCol	        | flexDirection: 'column'           |
+| flexColReverse	| flexDirection: 'column-reverse'   |
+### Flex Wrap
+| Class 	        | Properties                |
+|:------------------|:--------------------------|
+| flexWrap	        | flexWrap: 'wrap'          |
+| flexWrapReverse   | flexWrap: 'wrap-reverse'  |
+| flexNoWrap	    | flexWrap: 'nowrap'        |
+### Align Items
+| Class	            | Properties                |
+|:------------------|:--------------------------|
+| itemsStart	    | alignItems: 'flex-start'  |
+| itemsEnd	        | alignItems: 'flex-end'    |
+| itemsCenter	    | alignItems: 'center'      |
+| itemsStretch	    | alignItems: 'stretch'     |
+| itemsBaseline	    | alignItems: 'baseline'    |
+### Align Content
+| Class	            | Properties                    |
+|:------------------|:------------------------------|
+| contentStart	    | alignContent: 'flex-start'    |
+| contentEnd	    | alignContent: 'flex-end'      |
+| contentCenter	    | alignContent: 'center'        |
+| contentStretch    | alignContent: 'stretch'       |
+| contentBetween	| alignContent: 'space-between' |
+| contentAround	    | alignContent: 'space-around'  |
+### Align Self
+| Class	        | Properties                |
+|:--------------|:--------------------------|
+| selfAuto	    | alignSelf: 'auto'         |
+| selfStart	    | alignSelf: 'flex-start'   |
+| selfEnd	    | alignSelf: 'flex-end'     |
+| selfCenter	| alignSelf: 'center'       |
+| selfStretch	| alignSelf: 'stretch'      |
+| selfBaseline  | lignSelf: 'baseline'      |
+### Justify Content
+| Class	            | Properties                        |
+|:------------------|:----------------------------------|
+| justifyStart	    | justifyContent: 'flex-start'      |
+| justifyEnd	    | justifyContent: 'flex-end'        |
+| justifyCenter	    | justifyContent: 'center'          |
+| justifyBetween    | justifyContent: 'space-between'   |
+| justifyAround	    | justifyContent: 'space-around'    |
+| justifyEvenly	    | justifyContent: 'space-evenly'    |
+### Flex
+| Class    | Properties |
+|:---------|:-----------|
+| flexNone | flex: 0    |
+| flexAuto | flex: 1    |
+### Flex Grow
+| Class         | Properties        |
+|:--------------|:------------------|
+| flexGrow      | flexGrow: 1       |
+| flexGrowNone  | flexGrow: 0       |
+### Flex Shrink
+| Class             | Properties        |
+|:------------------|:------------------|
+| flexShrink        | flexShrink: 1       |
+| flexShrinkNone    | flexShrink: 0       |
 ## `Container` Component
 ### Usage
 ```jsx
@@ -438,7 +617,7 @@ import {Container} from 'reactstrap-native-web';
 ### Document
 | Name      | Description                                                                       | Default | Type    | Required |
 |:----------|:----------------------------------------------------------------------------------|:--------|:--------|:---------|
-|   fluid    | Type container you want: "sm", "md", "lg", "xl", true <br /> You can reference link [Container bootstrap](https://getbootstrap.com/docs/4.5/layout/overview/#containers) to know use them                | false   | String or Boolean | false |
+|   fluid   | Type container you want: "sm", "md", "lg", "xl", true <br /> You can reference link [Container bootstrap](https://getbootstrap.com/docs/4.5/layout/overview/#containers) to know use them                | false   | String or Boolean | false |
 |   debug   | Support debug for container component ( add border around container component )   | false   | Boolean | false |
 
 ### Example with default container and enable `debug`
@@ -527,7 +706,8 @@ Use library [react-native-fit-image](https://github.com/huiseoul/react-native-fi
 ### Example
 Please reference link [react-native-fit-image](https://github.com/huiseoul/react-native-fit-image)
 ## Inspired by
-[Library Reactstrap](https://reactstrap.github.io/)
+- [Library Reactstrap](https://reactstrap.github.io/)
+- [React native tailwincss](https://github.com/TVke/react-native-tailwindcss)
 ## Contributing
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
 
