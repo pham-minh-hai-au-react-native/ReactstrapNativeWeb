@@ -32,7 +32,7 @@ This is project create support library bootstrap on react native and react nativ
     - [Justify Content](#justify-content)
     - [Flex](#flex)
     - [Flex Grow](#flex-grow)
-    - [Flex Shrink](flex-shrink)
+    - [Flex Shrink](#flex-shrink)
 * [Container Component](#container-component)
     - [Usage](#usage)
     - [Document](#document)
