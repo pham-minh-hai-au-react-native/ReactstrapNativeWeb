@@ -41,7 +41,8 @@ const getListStyleBorderWithColor = (
 };
 const getListBorderWidthWithSpacer = (spacer: number): VariableBorderColor => {
   const result: VariableBorderColor = {};
-  for (let i = 0; i <= spacer; i++) {
+  const separateSpacer: number = Math.floor(spacer / 2);
+  for (let i = 0; i <= separateSpacer; i++) {
     result[`border${i}`] = {borderWidth: i};
     result[`borderX${i}`] = {
       borderRightWidth: i,
@@ -114,7 +115,10 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
       colors: {},
       textColor: {},
       bgColor: {},
-      borderColor: getListRoundedBorder(spacerDefault),
+      borderColor: {
+        ...getListRoundedBorder(spacerDefault),
+        ...getListBorderWidthWithSpacer(spacerDefault),
+      },
       marginSpacer: {
         m0: {
           margin: spacer0,
@@ -407,7 +411,10 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
       ...{
         textColor: {},
         bgColor: {},
-        borderColor: getListRoundedBorder(spacerDefault),
+        borderColor: {
+          ...getListRoundedBorder(spacerDefault),
+          ...getListBorderWidthWithSpacer(spacerDefault),
+        },
         marginSpacer: {
           m0: {
             margin: spacer0,

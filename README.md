@@ -6,6 +6,13 @@ This is project create support library bootstrap on react native and react nativ
 * [Global Style](#global-style)
     - [Setup](#setup)
     - [Document Structure Dynamic Theme](#document-structure-dynamic-theme)
+    - [Text Color](#text-color)
+    - [Background Color](#background-color)
+    - [Border Color](#border-color)
+    - [Border Width](#border-width)
+    - [Padding](#padding)
+    - [Margin](#margin)
+    - [Width and Height](#width-and-height)
 * [Container Component](#container-component)
     - [Usage](#usage)
     - [Document](#document)
@@ -42,7 +49,7 @@ npm i reactstrap-native-web@beta
    2. Load theme `default` or `dynamic theme` you want.
         ```jsx
         import {buildTheme} from 'reactstrap-native-web';
-        
+        import {StyleSheet} from 'react-native'  
         const themes = buildTheme({
           lightTheme: {
             spacer: 30,  
@@ -91,7 +98,338 @@ npm i reactstrap-native-web@beta
 | Name | Description | Default | Type | Required |
 |:-----|:------------|:--------|:-----|:---------|
 | colors | Define color for your dynamic theme or override theme default | None | Object | false |
-| spacer | Number present size please reference [spacing](https://getbootstrap.com/docs/4.5/utilities/spacing/) | None | Number | false | 
+| spacer | Number present size please reference [spacing](https://getbootstrap.com/docs/4.5/utilities/spacing/) | 16 | Number | false | 
+### Text Color
+   - Generate when we setting `colors`
+   - Example:
+   ```jsx
+        import {buildTheme} from 'reactstrap-native-web';
+        import {StyleSheet} from 'react-native'   
+        const themes = buildTheme({
+            lightTheme: {
+               spacer: 30,  
+               colors: {
+                 primary: 'red',
+               },
+            },
+        });
+   
+        export const bootstrap = StyleSheet.create(themes.default.styleSheet);
+        export const lightTheme = StyleSheet.create(themes.lightTheme.styleSheet);
+   ```
+
+   - Auto generate `text color` for `lightTheme`:
+   
+   ```jsx
+      import {StyleSheet} from "react-native";
+
+      StyleSheet.create({
+        textPrimary: {
+            color: 'red'        
+        }   
+      })  
+   ```
+   - we can access style in code the following:
+   ```jsx
+        export const ExampleComponent = () => {
+            return (
+                <View style={lightTheme.textPrimary}/>
+            );   
+        }   
+   ```
+  
+### Background Color
+   - Generate when we setting `colors`
+   - Example:
+   ```jsx
+        import {buildTheme} from 'reactstrap-native-web';
+        import {StyleSheet} from 'react-native'   
+        const themes = buildTheme({
+            lightTheme: {
+                spacer: 30,  
+                colors: {
+                    primary: 'red',
+                },
+            },
+        });
+       
+        export const bootstrap = StyleSheet.create(themes.default.styleSheet);
+        export const lightTheme = StyleSheet.create(themes.lightTheme.styleSheet);
+   ```
+    
+   - Auto generate `background color` for `lightTheme`:
+       
+   ```jsx
+        import {StyleSheet} from "react-native";
+    
+        StyleSheet.create({
+            bgPrimary: {
+                backgroundColor: 'red'        
+            }   
+        })  
+   ```
+   - we can access style in code the following:
+   ```jsx
+        export const ExampleComponent = () => {
+            return (
+                <View style={lightTheme.bgPrimary}/>
+            );   
+        }   
+   ```
+### Border Color
+   - Generate when we setting `colors`
+   - Example:
+   ```jsx
+        import {buildTheme} from 'reactstrap-native-web';
+        import {StyleSheet} from 'react-native'   
+        const themes = buildTheme({
+            lightTheme: {
+                spacer: 30,  
+                colors: {
+                    primary: 'red',
+                },
+            },
+        });
+       
+        export const bootstrap = StyleSheet.create(themes.default.styleSheet);
+        export const lightTheme = StyleSheet.create(themes.lightTheme.styleSheet);
+   ```
+    
+   - Auto generate `border color` for `lightTheme`:
+       
+   ```jsx
+        import {StyleSheet} from "react-native";
+    
+        StyleSheet.create({
+            borderPrimary: {
+              borderColor: 'red',    
+            },
+            borderFullPrimary: {
+              borderWidth: 1,
+              borderColor: 'red',
+              borderStyle: 'solid',     
+            },
+            borderBottomPrimary: {
+              borderBottomColor: 'red',
+              borderBottomWidth: 1,
+              borderStyle: 'solid',
+            },
+            borderLeftPrimary: {
+              borderLeftColor: 'red',
+              borderLeftWidth: 1,
+              borderStyle: 'solid',
+            },
+            borderRightPrimary: {
+              borderRightColor: 'red',
+              borderRightWidth: 1,
+              borderStyle: 'solid',
+            },
+            borderTopPrimary: {
+               borderTopColor: 'red',
+               borderTopWidth: 1,
+               borderStyle: 'solid',
+            }                            
+        })  
+   ```
+   - we can access style in code the following:
+   ```jsx
+        export const ExampleComponent = () => {
+            return (
+                <View style={lightTheme.borderFullPrimary}/>
+            );   
+        }   
+   ```
+### Border Width
+   - Generate when we setting `spacer`
+   - Example:
+   ```jsx
+        import {buildTheme} from 'reactstrap-native-web';
+        import {StyleSheet} from 'react-native'   
+        const themes = buildTheme({
+            lightTheme: {
+                spacer: 30,  
+                colors: {
+                    primary: 'red',
+                },
+            },
+        });
+       
+        export const bootstrap = StyleSheet.create(themes.default.styleSheet);
+        export const lightTheme = StyleSheet.create(themes.lightTheme.styleSheet);
+   ```
+    
+   - Auto generate `border width` for `lightTheme`:
+       
+   ```jsx
+        import {StyleSheet} from "react-native";
+    
+        StyleSheet.create({
+            border0: {
+                borderWidth: 0,
+            },
+            borderB0: {
+                borderBottomWidth: 0,
+            },
+            borderE0: {
+                borderEndWidth: 0,
+            },
+            borderL0: {
+                borderLeftWidth: 0,
+            },
+            borderR0: {
+                borderRightWidth: 0,
+            },
+            borderS0: {
+                borderStartWidth: 0,
+            },
+            borderT0: {
+                borderTopWidth: 0,
+            },
+            borderX0: {
+                borderRightWidth: 0,
+                borderLeftWidth: 0,
+            },
+            borderY0: {
+                borderBottomWidth: 0,
+                borderTopWidth: 0,
+            },
+            ... generate => spacer / 2 ,  
+            border15: {
+                borderWidth: 15,
+            }                    
+                 
+        })  
+   ```
+   - we can access style in code the following:
+   ```jsx
+        export const ExampleComponent = () => {
+            return (
+                <View style={lightTheme.border3}/>
+            );   
+        }   
+   ```
+### Padding
+   - Generate when we setting `spacer`
+   - Example:
+   ```jsx
+        import {buildTheme} from 'reactstrap-native-web';
+        import {StyleSheet} from 'react-native'   
+        const themes = buildTheme({
+            lightTheme: {
+                spacer: 30,  
+                colors: {
+                    primary: 'red',
+                },
+            },
+        });
+       
+        export const bootstrap = StyleSheet.create(themes.default.styleSheet);
+        export const lightTheme = StyleSheet.create(themes.lightTheme.styleSheet);
+   ```
+    
+   - Auto generate `padding` for `lightTheme` according to the rate of [spacing](https://getbootstrap.com/docs/4.5/utilities/spacing/) of the bootstrap
+       
+   ```jsx
+        import {StyleSheet} from "react-native";
+    
+        StyleSheet.create({
+            p0: {
+                padding: 0,
+            },
+            pb0: {
+                paddingBottom: 0,
+            },
+            pl0: {
+                paddingLeft: 0,
+            },
+            pt0: {
+                paddingTop: 0,
+            },
+            pr0: {
+                paddingRight: 0,
+            },
+            px0: {
+                paddingHorizontal: 0,
+            },
+            py0: {
+                paddingVertical: 0,
+            },
+            ... generate => 5,
+            p5: {
+                padding: spacer * 3,
+            }   
+        })  
+   ```
+   - we can access style in code the following:
+   ```jsx
+        export const ExampleComponent = () => {
+            return (
+                <View style={lightTheme.p3}/>
+            );   
+        }   
+   ```
+### Margin
+   - Generate when we setting `spacer`
+   - Example:
+   ```jsx
+        import {buildTheme} from 'reactstrap-native-web';
+        import {StyleSheet} from 'react-native'   
+        const themes = buildTheme({
+            lightTheme: {
+                spacer: 30,  
+                colors: {
+                    primary: 'red',
+                },
+            },
+        });
+       
+        export const bootstrap = StyleSheet.create(themes.default.styleSheet);
+        export const lightTheme = StyleSheet.create(themes.lightTheme.styleSheet);
+   ```
+    
+   - Auto generate `margin` for `lightTheme` according to the rate of [spacing](https://getbootstrap.com/docs/4.5/utilities/spacing/) of the bootstrap
+       
+   ```jsx
+        import {StyleSheet} from "react-native";
+    
+        StyleSheet.create({
+            m0: {
+                margin: 0,
+            },
+            mb0: {
+                marginBottom: 0,
+            },
+            ml0: {
+                marginLeft: 0,
+            },
+            mt0: {
+                marginTop: 0,
+            },
+            mr0: {
+                marginRight: 0,
+            },
+            mx0: {
+                marginHorizontal: 0,
+            },
+            my0: {
+                marginVertical: 0,
+            },
+            ... generate => 5,
+            m5: {
+                margin: spacer * 3,
+            }   
+        })  
+   ```
+   - we can access style in code the following:
+   ```jsx
+        export const ExampleComponent = () => {
+            return (
+                <View style={lightTheme.m3}/>
+            );   
+        }   
+   ```
+### Width and Height
+   - Inspiration from library [react-native-tailwindcss](https://tvke.github.io/react-native-tailwindcss/sizing/width.html)
 ## `Container` Component
 ### Usage
 ```jsx
@@ -164,9 +502,9 @@ export const TestColumn = () => {
           <Text>Col 6</Text>
         </Col>
         <Col
-          col={{size: '7', offset: '1'}}
-          sm={{size: '6', offset: '0'}}
-          md={{size: '7', offset: '1'}}
+          col={{size: 7, offset: '1'}}
+          sm={{size: 6, offset: '0'}}
+          md={{size: 7, offset: '1'}}
           debug>
           <Text>Col 6</Text>
         </Col>

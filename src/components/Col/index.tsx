@@ -65,6 +65,7 @@ export const Col: React.FC<Props> = ({
   lg,
   md,
   sm,
+  debug = false,
 }): React.ReactElement => {
   const width: number = useWindowDimensions().width;
   const commonCol = getCol(col);
@@ -87,15 +88,25 @@ export const Col: React.FC<Props> = ({
   return (
     <>
       {width <= 576 ? (
-        <ComponentSM offset={offsetSM}>{children}</ComponentSM>
+        <ComponentSM offset={offsetSM} debug={debug}>
+          {children}
+        </ComponentSM>
       ) : width <= 768 ? (
-        <ComponentMD offset={offsetMD}>{children}</ComponentMD>
+        <ComponentMD offset={offsetMD} debug={debug}>
+          {children}
+        </ComponentMD>
       ) : width <= 992 ? (
-        <ComponentLG offset={offsetLG}>{children}</ComponentLG>
+        <ComponentLG offset={offsetLG} debug={debug}>
+          {children}
+        </ComponentLG>
       ) : width <= 1200 ? (
-        <ComponentXL offset={offsetXL}>{children}</ComponentXL>
+        <ComponentXL offset={offsetXL} debug={debug}>
+          {children}
+        </ComponentXL>
       ) : (
-        <ComponentCol offset={offsetCol}>{children}</ComponentCol>
+        <ComponentCol offset={offsetCol} debug={debug}>
+          {children}
+        </ComponentCol>
       )}
     </>
   );

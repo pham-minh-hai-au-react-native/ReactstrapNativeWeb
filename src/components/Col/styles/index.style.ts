@@ -1,13 +1,14 @@
 import {StyleSheet} from 'react-native';
-// flex: <'flex-grow'> <'flex-shrink'> <'flex-basis'>
 import styled from 'styled-components/native';
 import {NumberOffsetColumn} from '../types/index';
+import {DebugView} from '../../../styles/components/index';
+import {DebugProps} from '../../../types/index';
 
-interface ColProps {
+interface ColProps extends DebugProps {
   offset?: NumberOffsetColumn;
 }
 
-const Col = styled.View<ColProps>`
+const Col = styled(DebugView)<ColProps>`
   position: relative;
   width: 100%;
   margin-left: ${({offset}) =>

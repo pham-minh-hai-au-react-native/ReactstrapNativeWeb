@@ -1,6 +1,6 @@
 import Layout from './layout/index';
 import Border from './border/index';
-import loadTheme from './scripts/loadTheme';
+import loadTheme from './utils/loadTheme';
 import {ListDynamicTheme, ListTheme} from './types';
 
 export const buildTheme = (listTheme?: ListDynamicTheme) => {

@@ -1,15 +1,9 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {
-  Container,
-  Row,
-  Col,
-  Image,
-  layout,
-  buildTheme,
-} from 'reactstrap-native-web';
+import {Container, Row, Col, Image, buildTheme} from 'reactstrap-native-web';
 const result = buildTheme({
   lightTheme: {
+    spacer: 30,
     colors: {
       primary: 'red',
     },
@@ -17,13 +11,13 @@ const result = buildTheme({
 });
 const bootstrap = StyleSheet.create(result.default.styleSheet);
 const lightTheme = StyleSheet.create(result.lightTheme.styleSheet);
-console.log(result.default.styleSheet.w60);
+console.log(result);
 export const PageDemo1 = () => {
   const renderItem = (info) => {
     const {index} = info;
     return (
-      <Row key={index}>
-        <Col col={4} sm={{size: 12}} md={{size: 6}}>
+      <Row key={index} debug>
+        <Col col={4} sm={{size: 12}} md={{size: 6}} debug>
           <Text>Include content</Text>
           <Text>Include content</Text>
           <Text>Include content</Text>
@@ -31,7 +25,12 @@ export const PageDemo1 = () => {
           <Text>Include content</Text>
           <Text>Include content</Text>
           <Text>Include content</Text>
-          <View style={[bootstrap.w60, bootstrap.bgPrimary]}>
+          <View
+            style={[
+              bootstrap.wScreen,
+              bootstrap.bgPrimary,
+              lightTheme.border3,
+            ]}>
             <Text style={lightTheme.textPrimary}>Include content</Text>
           </View>
         </Col>
@@ -40,6 +39,7 @@ export const PageDemo1 = () => {
           sm={{size: 6, offset: 6}}
           md={{size: 3, offset: 3}}>
           <Image
+            resizeMode={'contain'}
             source={{
               uri:
                 'https://znews-photo.zadn.vn/w660/Uploaded/lce_qdhuc/2019_05_14/ynhi2.jpg',

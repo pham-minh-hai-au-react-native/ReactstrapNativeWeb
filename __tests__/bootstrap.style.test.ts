@@ -1,4 +1,4 @@
-import loadTheme from '../src/styles/scripts/loadTheme';
+import loadTheme from '../src/styles/utils/loadTheme';
 
 describe('Write test for function buildTheme', () => {
   it('Write test for case input is undefined', () => {
