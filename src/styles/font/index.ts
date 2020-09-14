@@ -30,31 +30,31 @@ export default {
     fontSize: 64,
   },
   fontHairline: {
-    fontWeight: 100,
+    fontWeight: '100',
   },
   fontThin: {
-    fontWeight: 200,
+    fontWeight: '200',
   },
   fontLight: {
-    fontWeight: 300,
+    fontWeight: '300',
   },
   fontNormal: {
     fontWeight: 'normal',
   },
   fontMedium: {
-    fontWeight: 500,
+    fontWeight: '500',
   },
   fontSemibold: {
-    fontWeight: 600,
+    fontWeight: '600',
   },
   fontBold: {
     fontWeight: 'bold',
   },
   fontExtraBold: {
-    fontWeight: 800,
+    fontWeight: '800',
   },
   fontBlack: {
-    fontWeight: 900,
+    fontWeight: '900',
   },
   trackingTighter: {
     letterSpacing: -0.8,

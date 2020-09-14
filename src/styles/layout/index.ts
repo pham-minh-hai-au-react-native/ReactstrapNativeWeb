@@ -89,7 +89,6 @@ export default {
   w10_12: {width: '83.333333%'},
   w11_12: {width: '91.666667%'},
   wFull: {width: '100%'},
-  wScreen: {width: '100vw'},
   minW0: {
     minWidth: 0,
   },
@@ -198,8 +197,6 @@ export default {
   h10_12: {height: '83.333333%'},
   h11_12: {height: '91.666667%'},
   hFull: {height: '100%'},
-  hScreen: {height: '100vh'},
   minH0: {minHeight: 0},
   minHFull: {minHeight: '100%'},
-  minHScreen: {minHeight: '100vh'},
 };

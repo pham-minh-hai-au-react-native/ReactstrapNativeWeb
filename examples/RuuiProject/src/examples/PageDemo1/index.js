@@ -1,6 +1,13 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {Container, Row, Col, Image, buildTheme} from 'reactstrap-native-web';
+import {
+  Container,
+  Row,
+  Col,
+  Image,
+  buildTheme,
+  TextShadow,
+} from '../../../../../src/index';
 const result = buildTheme({
   lightTheme: {
     spacer: 30,
@@ -18,7 +25,14 @@ export const PageDemo1 = () => {
     return (
       <Row key={index} debug>
         <Col col={4} sm={{size: 12}} md={{size: 6}} debug>
-          <Text>Include content</Text>
+          <View>
+            <TextShadow
+              shadow={
+                '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18'
+              }
+              style={{color: '#ffffff'}}
+            />
+          </View>
           <Text>Include content</Text>
           <Text>Include content</Text>
           <Text>Include content</Text>
