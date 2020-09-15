@@ -1,11 +1,10 @@
 import React from 'react';
+import {View, Text, LayoutChangeEvent, ViewStyle} from 'react-native';
 import {
-  View,
-  Text,
-  StyleSheet,
-  LayoutChangeEvent,
-  ViewStyle,
-} from 'react-native';
+  ViewRelative,
+  TextAndroid,
+  TextAbsoluteAndroid,
+} from './styles/index.style';
 import {Props, PropsTextShadow} from './types';
 import {getArrayTextShadow} from './utils';
 
@@ -36,11 +35,6 @@ const TextShadow: React.FC<Props> = ({
   );
   const [firstShadow, ...restShadow] = arrTextShadow;
   const size = arrTextShadow.length;
-  const styleTextLayout = {
-    width: layoutText.width,
-    height: layoutText.height,
-    ...styles.textCenter,
-  };
   const handleLayout = (event: LayoutChangeEvent) => {
     const {
       nativeEvent: {
@@ -58,50 +52,26 @@ const TextShadow: React.FC<Props> = ({
     return <Text>{children}</Text>;
   }
   return (
-    <View style={styles.positionRelative} onLayout={handleLayout}>
-      <Text
-        style={[
-          style,
-          firstShadow,
-          {
-            zIndex: size + 1,
-          },
-          styleTextLayout,
-        ]}>
+    <ViewRelative onLayout={handleLayout}>
+      <TextAndroid
+        width={layoutText.width}
+        height={layoutText.height}
+        zIndex={size + 1}
+        style={[style, firstShadow]}>
         {children}
-      </Text>
+      </TextAndroid>
       {restShadow.map((item: PropsTextShadow, index: number) => (
-        <Text
+        <TextAbsoluteAndroid
+          zIndex={size - index}
+          width={layoutText.width}
+          height={layoutText.height}
           key={index}
-          style={[
-            style,
-            styles.positionChild,
-            item,
-            {
-              zIndex: size - index,
-            },
-            styleTextLayout,
-          ]}>
+          style={[style, item]}>
           {children}
-        </Text>
+        </TextAbsoluteAndroid>
       ))}
-    </View>
+    </ViewRelative>
   );
 };
-
-const styles = StyleSheet.create({
-  positionRelative: {
-    position: 'relative',
-  },
-  positionChild: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-  },
-  textCenter: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-  },
-});
 
 export default TextShadow;

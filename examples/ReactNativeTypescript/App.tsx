@@ -25,73 +25,8 @@ const App = () => {
           backgroundColor: '#333333',
         }}>
         <TextShadow
-          style={{color: '#ffffff', fontSize: 60}}
-          shadows={[
-            {
-              textShadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              textShadowRadius: 5,
-              textShadowColor: '#fff',
-            },
-            {
-              textShadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              textShadowRadius: 10,
-              textShadowColor: '#fff',
-            },
-            {
-              textShadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              textShadowRadius: 15,
-              textShadowColor: '#fff',
-            },
-            {
-              textShadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              textShadowRadius: 20,
-              textShadowColor: '#49ff18',
-            },
-            {
-              textShadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              textShadowRadius: 30,
-              textShadowColor: '#49ff18',
-            },
-            {
-              textShadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              textShadowRadius: 40,
-              textShadowColor: '#49ff18',
-            },
-            {
-              textShadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              textShadowRadius: 55,
-              textShadowColor: '#49ff18',
-            },
-            {
-              textShadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              textShadowRadius: 75,
-              textShadowColor: '#49ff18',
-            },
-          ]}>
+          textShadow="0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;"
+          style={{color: '#ffffff', fontSize: 60}}>
           Preview
         </TextShadow>
       </SafeAreaView>

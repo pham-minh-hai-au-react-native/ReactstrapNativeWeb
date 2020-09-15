@@ -7,7 +7,7 @@ import {
   Image,
   buildTheme,
   TextShadow,
-} from '../../../../../src/index';
+} from 'reactstrap-native-web';
 const result = buildTheme({
   lightTheme: {
     spacer: 30,
@@ -27,11 +27,10 @@ export const PageDemo1 = () => {
         <Col col={4} sm={{size: 12}} md={{size: 6}} debug>
           <View>
             <TextShadow
-              shadow={
-                '0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18'
-              }
-              style={{color: '#ffffff'}}
-            />
+              textShadow="0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;"
+              style={{color: '#ffffff', fontSize: 60}}>
+              Preview
+            </TextShadow>
           </View>
           <Text>Include content</Text>
           <Text>Include content</Text>

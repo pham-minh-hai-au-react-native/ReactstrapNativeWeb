@@ -4,7 +4,9 @@ import {Props} from './types';
 const TextShadowComponent = lazy(() =>
   Platform.OS === 'ios'
     ? import('./TextShadow.ios')
-    : import('./TextShadow.android'),
+    : Platform.OS === 'android'
+    ? import('./TextShadow.android')
+    : import('./TextShadow.web'),
 );
 export const TextShadow: React.FC<Props> = (
   props: Props,

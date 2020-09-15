@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
+import {ViewRelative, TextIos, TextAbsoluteIos} from './styles/index.style';
 import {Props, PropsTextShadow} from './types/index';
-
 import {getArrayTextShadow} from './utils/index';
 const TextShadow: React.FC<Props> = ({
   style = {},
@@ -24,53 +24,28 @@ const TextShadow: React.FC<Props> = ({
   );
   const [firstShadow, ...restShadow] = arrTextShadow;
   const size = arrTextShadow.length;
-  const styleTextLayout = {
-    padding: maxFlattenNumberWidthHeightRadiusInShadows,
-  };
   if (firstShadow === undefined) {
     return <Text>{children}</Text>;
   }
   return (
-    <View style={styles.positionRelative}>
-      <Text
-        style={[
-          style,
-          firstShadow,
-          {
-            zIndex: size + 1,
-          },
-          styleTextLayout,
-        ]}>
+    <ViewRelative>
+      <TextIos
+        zIndex={size + 1}
+        padding={maxFlattenNumberWidthHeightRadiusInShadows}
+        style={[style, firstShadow]}>
         {children}
-      </Text>
+      </TextIos>
       {restShadow.map((item: PropsTextShadow, index: number) => (
-        <Text
+        <TextAbsoluteIos
+          zIndex={size - index}
+          padding={maxFlattenNumberWidthHeightRadiusInShadows}
           key={index}
-          style={[
-            style,
-            styles.positionChild,
-            item,
-            {
-              zIndex: size - index,
-            },
-            styleTextLayout,
-          ]}>
+          style={[style, item]}>
           {children}
-        </Text>
+        </TextAbsoluteIos>
       ))}
-    </View>
+    </ViewRelative>
   );
 };
-
-const styles = StyleSheet.create({
-  positionRelative: {
-    position: 'relative',
-  },
-  positionChild: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-  },
-});
 
 export default TextShadow;
