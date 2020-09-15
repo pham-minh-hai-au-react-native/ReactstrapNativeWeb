@@ -4,11 +4,11 @@ import {RuuiProvider, Tooltip} from 'react-universal-ui';
 // import {ContainerWithDebug} from './examples/Container/containerWithDebug';
 // import {TestColumn} from './examples/Col/demo';
 import {PageDemo1} from './examples/PageDemo1';
-
+import {TextShadowDemo} from './examples/TextShadow';
 const App = () => {
   return (
     <SafeAreaView>
-      <PageDemo1 />
+      <TextShadowDemo />
     </SafeAreaView>
   );
 };

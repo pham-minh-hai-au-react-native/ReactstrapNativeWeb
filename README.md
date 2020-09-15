@@ -48,6 +48,10 @@ This is project create support library bootstrap on react native and react nativ
     - [Usage](#usage)
     - [Document](#document)
     - [Example](#example)
+* [TextShadow Component](#textshadow-component)   
+    - [Usage](#usage)
+    - [Document](#document)
+    - [Example](#example) 
 * [Inspired by](#inspired-by)
 * [Contributing](#contributing)
 * [Author](#author)
@@ -655,14 +659,14 @@ import {Row} from 'reactstrap-native-web';
 import {Col} from 'reactstrap-native-web';
 ```
 ### Document
- Name      | Description                                                                       | Default | Type    | Required |
-|:---------|:----------------------------------------------------------------------------------|:--------|:--------|:---------|
-|   col    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | true |
+| Name    | Description                                                                       | Default | Type    | Required |
+|:--------|:----------------------------------------------------------------------------------|:--------|:--------|:---------|
+|   col   | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | true |
 |   sm    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | false |
 |   md    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | false |
 |   xl    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | false |
 |   lg    | Number column: [1...12] or 'auto' or object: {size: number, offset: number} <br /> You can reference link [Column Reactstrap](https://reactstrap.github.io/components/layout/#app)               | None   | String or Number or Object | false |
-|   debug   | Support debug    | false   | Boolean | false |
+|   debug | Support debug    | false   | Boolean | false |
 ### Example
 ```jsx
 import React from 'react';
@@ -705,9 +709,24 @@ import {Image} from 'reactstrap-native-web';
 Use library [react-native-fit-image](https://github.com/huiseoul/react-native-fit-image)
 ### Example
 Please reference link [react-native-fit-image](https://github.com/huiseoul/react-native-fit-image)
+## TextShadow Component
+### Usage
+```jsx
+import {TextShadow} from 'reactstrap-native-web';
+```
+### Document
+| Name      | Description                       | Default       | Type   | Required |
+|:----------|:----------------------|:--------------|:-------|:---------|
+| children  | string text shadow    | Text Shadow   | String | false    |
+| style     | style for text [Text Style](https://reactnative.dev/docs/text-style-props#docsNav)    | None | TextStyleProps | false | 
+| textShadow| string shadow as [css text shadow](https://www.w3schools.com/cssref/css3_pr_text-shadow.asp) | None | String | true |  
+### Example
+```jsx
+
+```
 ## Inspired by
 - [Library Reactstrap](https://reactstrap.github.io/)
-- [React native tailwincss](https://github.com/TVke/react-native-tailwindcss)
+- [React native taildwincss](https://github.com/TVke/react-native-tailwindcss)
 ## Contributing
 Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
 
