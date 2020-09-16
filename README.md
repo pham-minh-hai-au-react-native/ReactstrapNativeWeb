@@ -722,8 +722,19 @@ import {TextShadow} from 'reactstrap-native-web';
 | textShadow| string shadow as [css text shadow](https://www.w3schools.com/cssref/css3_pr_text-shadow.asp) | None | String | true |  
 ### Example
 ```jsx
+import {TextShadow} from 'reactstrap-native-web';
 
+export const TextShadowDemo = () => {
+  return (
+   <View style={{flex: 1, backgroundColor: "#232323"}}>
+       <TextShadow textShadow={'0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18'} style={{color: "#FFFFFF"}} />
+   </View>
+  );
+};
 ```
+| On Android | On IOS |
+|:-----------|:-------|
+|![](assets/TextShadow/android.gif) | ![](assets/TextShadow/ios.gif) |
 ## Inspired by
 - [Library Reactstrap](https://reactstrap.github.io/)
 - [React native taildwincss](https://github.com/TVke/react-native-tailwindcss)
