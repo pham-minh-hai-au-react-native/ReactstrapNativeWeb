@@ -41,15 +41,17 @@ const TextShadow: React.FC<Props> = ({
         layout: {width, height},
       },
     } = event;
-    const widthExtraRadius = width + maxFlattenNumberWidthHeightRadiusInShadows;
+    const widthExtraRadius = width;
     const heightExtraRadius =
-      height + maxFlattenNumberWidthHeightRadiusInShadows;
+      height + maxFlattenNumberWidthHeightRadiusInShadows / 2;
     if (layoutText.width === 'auto' && layoutText.height === 'auto') {
       setLayoutText({...{width: widthExtraRadius, height: heightExtraRadius}});
     }
   };
   if (firstShadow === undefined) {
-    return <Text>{children}</Text>;
+    return <Text style={style}>{children}</Text>;
+  } else if (firstShadow && restShadow.length === 0) {
+    return <Text style={[style, firstShadow]}>{children}</Text>;
   }
   return (
     <ViewRelative onLayout={handleLayout}>

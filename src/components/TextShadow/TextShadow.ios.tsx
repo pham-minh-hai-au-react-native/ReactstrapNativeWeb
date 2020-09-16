@@ -25,7 +25,9 @@ const TextShadow: React.FC<Props> = ({
   const [firstShadow, ...restShadow] = arrTextShadow;
   const size = arrTextShadow.length;
   if (firstShadow === undefined) {
-    return <Text>{children}</Text>;
+    return <Text style={style}>{children}</Text>;
+  } else if (firstShadow && restShadow.length === 0) {
+    return <Text style={[style, firstShadow]}>{children}</Text>;
   }
   return (
     <ViewRelative>
