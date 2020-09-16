@@ -1,4 +1,5 @@
 import Layout from './layout/index';
+import LayoutStyledComponent from './layout/layout.style';
 import Border from './border/index';
 import Overflow from './overflow/index';
 import Display from './display/index';
@@ -8,9 +9,20 @@ import Font from './font/index';
 import Flex from './flex/index';
 import loadTheme from './utils/loadTheme';
 import {ListDynamicTheme, ListTheme} from './types';
+import {css} from 'styled-components/native';
 
 export const buildTheme = (listTheme?: ListDynamicTheme) => {
   const themes: ListTheme = loadTheme(listTheme);
+  const styledComponent = {
+    ...LayoutStyledComponent,
+    background: (color: string) => {
+      return css`
+        background-color: ${color};
+      `;
+    },
+  };
+  console.log('styled component');
+  console.log(styledComponent);
   for (const theme in themes) {
     themes[theme].styleSheet = {
       ...themes[theme].bgColor,
@@ -28,5 +40,6 @@ export const buildTheme = (listTheme?: ListDynamicTheme) => {
       ...Flex,
     };
   }
+  themes.styledComponent = styledComponent;
   return themes;
 };

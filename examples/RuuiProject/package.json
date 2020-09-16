@@ -17,7 +17,8 @@
     "react-native-reanimated": "^1.13.0",
     "react-native-web": "^0.13.9",
     "react-universal-ui": "^1.0.59",
-    "reactstrap-native-web": "file:../../reactstrap-native-web-1.0.3.tgz"
+    "reactstrap-native-web": "file:../../reactstrap-native-web-1.0.4.tgz",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

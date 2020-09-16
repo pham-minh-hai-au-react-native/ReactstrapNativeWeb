@@ -173,6 +173,7 @@ export interface DynamicTheme extends Color {
 }
 
 export interface ListTheme {
+  styledComponent?: any;
   [key: string]: Theme;
 }
 

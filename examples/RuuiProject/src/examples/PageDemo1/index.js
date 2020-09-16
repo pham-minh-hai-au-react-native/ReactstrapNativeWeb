@@ -1,13 +1,7 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {
-  Container,
-  Row,
-  Col,
-  Image,
-  buildTheme,
-  TextShadow,
-} from 'reactstrap-native-web';
+import {Container, Row, Col, Image, buildTheme} from 'reactstrap-native-web';
+import styled, {css} from 'styled-components/native';
 const result = buildTheme({
   lightTheme: {
     spacer: 30,
@@ -19,20 +13,20 @@ const result = buildTheme({
 const bootstrap = StyleSheet.create(result.default.styleSheet);
 const lightTheme = StyleSheet.create(result.lightTheme.styleSheet);
 console.log(result);
+const ViewDemo = styled.View`
+  ${result.styledComponent.w64};
+  ${result.styledComponent.background(result.lightTheme.colors.primary)};
+  height: 200px;
+`;
 export const PageDemo1 = () => {
   const renderItem = (info) => {
     const {index} = info;
     return (
       <Row key={index} debug>
         <Col col={4} sm={{size: 12}} md={{size: 6}} debug>
-          <View>
-            <TextShadow
-              textShadow="0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;"
-              style={{color: '#ffffff', fontSize: 60}}>
-              Preview
-            </TextShadow>
-          </View>
-          <Text>Include content</Text>
+          <ViewDemo>
+            <Text>Include content</Text>
+          </ViewDemo>
           <Text>Include content</Text>
           <Text>Include content</Text>
           <Text>Include content</Text>

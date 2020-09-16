@@ -8,7 +8,7 @@ import {TextShadowDemo} from './examples/TextShadow';
 const App = () => {
   return (
     <SafeAreaView>
-      <TextShadowDemo />
+      <PageDemo1 />
     </SafeAreaView>
   );
 };

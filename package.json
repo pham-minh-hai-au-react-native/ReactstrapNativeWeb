@@ -49,7 +49,7 @@
     "react": "16.13.1",
     "react-native": "0.63.2",
     "colors-regex": "^2.0.0",
-    "styled-components": "^5.2.0",
+    "styled-components": ">= 5",
     "react-native-fit-image": "^1.5.5"
   },
   "files": [
