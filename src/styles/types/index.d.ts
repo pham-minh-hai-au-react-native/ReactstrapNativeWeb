@@ -166,6 +166,7 @@ export interface Theme
     PaddingSpacer {
   spacer?: number;
   styleSheet: any;
+  styledComponent: any;
 }
 
 export interface DynamicTheme extends Color {
@@ -173,7 +174,6 @@ export interface DynamicTheme extends Color {
 }
 
 export interface ListTheme {
-  styledComponent?: any;
   [key: string]: Theme;
 }
 

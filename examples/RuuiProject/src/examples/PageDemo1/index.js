@@ -13,10 +13,9 @@ const result = buildTheme({
 const bootstrap = StyleSheet.create(result.default.styleSheet);
 const lightTheme = StyleSheet.create(result.lightTheme.styleSheet);
 console.log(result);
-const ViewDemo = styled.View`
-  ${result.styledComponent.w64};
-  ${result.styledComponent.background(result.lightTheme.colors.primary)};
-  height: 200px;
+const DemoView = styled.View`
+  ${result.default.styledComponent.border8};
+  ${result.default.styledComponent.borderBlue};
 `;
 export const PageDemo1 = () => {
   const renderItem = (info) => {
@@ -24,12 +23,11 @@ export const PageDemo1 = () => {
     return (
       <Row key={index} debug>
         <Col col={4} sm={{size: 12}} md={{size: 6}} debug>
-          <ViewDemo>
-            <Text>Include content</Text>
-          </ViewDemo>
           <Text>Include content</Text>
           <Text>Include content</Text>
-          <Text>Include content</Text>
+          <DemoView>
+            <Text>content styled component</Text>
+          </DemoView>
           <Text>Include content</Text>
           <Text>Include content</Text>
           <View

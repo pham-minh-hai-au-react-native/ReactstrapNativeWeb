@@ -2,7 +2,45 @@ import {ListDynamicTheme, ListTheme, VariableBorderColor} from '../types/index';
 import theme from '../theme.style';
 import {mergeDeep, upperFirstLetter} from '../../utils/index';
 import {ColorValue} from 'react-native';
+import {css} from 'styled-components/native';
 const SPACER = 16;
+
+const getListStyleBorderWithColorAndReturnCSSStyledComponent = (
+  key: string,
+  color: any,
+): any => {
+  const result: any = {};
+  const keyUpperFirstLetter = upperFirstLetter(key);
+  result[`border${keyUpperFirstLetter}`] = css`
+    border-color: ${color};
+  `;
+  result[`borderFull${keyUpperFirstLetter}`] = css`
+    border-width: 1px;
+    border-color: ${color};
+    border-style: solid;
+  `;
+  result[`borderTop${keyUpperFirstLetter}`] = css`
+    border-top-color: ${color};
+    border-top-width: 1px;
+    border-style: solid;
+  `;
+  result[`borderRight${keyUpperFirstLetter}`] = css`
+    border-right-color: ${color};
+    border-right-width: 1px;
+    border-style: solid;
+  `;
+  result[`borderBottom${keyUpperFirstLetter}`] = css`
+    border-bottom-color: ${color};
+    border-bottom-width: 1px;
+    border-style: solid;
+  `;
+  result[`borderLeft${keyUpperFirstLetter}`] = css`
+    border-left-color: ${color};
+    border-left-width: 1px;
+    border-style: solid;
+  `;
+  return result;
+};
 const getListStyleBorderWithColor = (
   key: string,
   color: ColorValue,
@@ -61,6 +99,44 @@ const getListBorderWidthWithSpacer = (spacer: number): VariableBorderColor => {
   }
   return result;
 };
+const getListBorderWidthWithSpacerAndReturnCSSStyledComponent = (
+  spacer: number,
+): any => {
+  const result: any = {};
+  const separateSpacer: number = Math.floor(spacer / 2);
+  for (let i = 0; i <= separateSpacer; i++) {
+    result[`border${i}`] = css`
+      border-width: ${i}px;
+    `;
+    result[`borderX${i}`] = css`
+      border-right-width: ${i}px;
+      border-left-width: ${i}px;
+    `;
+    result[`borderY${i}`] = css`
+      border-top-width: ${i}px;
+      border-bottom-width: ${i}px;
+    `;
+    result[`borderT${i}`] = css`
+      border-top-width: ${i}px;
+    `;
+    result[`borderR${i}`] = css`
+      border-right-width: ${i}px;
+    `;
+    result[`borderB${i}`] = css`
+      border-bottom-width: ${i}px;
+    `;
+    result[`borderL${i}`] = css`
+      border-left-width: ${i}px;
+    `;
+    result[`borderE${i}`] = css`
+      border-end-width: ${i}px;
+    `;
+    result[`borderS${i}`] = css`
+      border-start-width: ${i}px;
+    `;
+  }
+  return result;
+};
 const getListRoundedBorder = (spacer: number): VariableBorderColor => {
   return {
     roundedSm: {
@@ -97,6 +173,47 @@ const getListRoundedBorder = (spacer: number): VariableBorderColor => {
     rounded0: {
       borderRadius: 0,
     },
+  };
+};
+
+const getListRoundedBorderAndReturnCSSStyledComponent = (
+  spacer: number,
+): any => {
+  return {
+    roundedSm: css`
+      border-radius: ${spacer * 0.2}px;
+    `,
+    rounded: css`
+      border-radius: ${spacer * 0.25}px;
+    `,
+    roundedTop: css`
+      border-top-left-radius: ${spacer * 0.25}px;
+      border-top-right-radius: ${spacer * 0.25}px;
+    `,
+    roundedRight: css`
+      border-top-right-radius: ${spacer * 0.25}px;
+      border-bottom-right-radius: ${spacer * 0.25}px;
+    `,
+    roundedBottom: css`
+      border-bottom-right-radius: ${spacer * 0.25}px;
+      border-bottom-left-radius: ${spacer * 0.25}px;
+    `,
+    roundedLeft: css`
+      border-bottom-left-radius: ${spacer * 0.25}px;
+      border-top-left-radius: ${spacer * 0.25}px;
+    `,
+    roundedLg: css`
+      border-radius: ${spacer * 0.3}px;
+    `,
+    roundedCircle: css`
+      border-radius: 99999px;
+    `,
+    roundedPill: css`
+      border-radius: ${spacer * 50}px;
+    `,
+    rounded0: css`
+      border-radius: 0;
+    `,
   };
 };
 export default (listTheme?: ListDynamicTheme): ListTheme => {
@@ -376,6 +493,12 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
         },
       },
       styleSheet: {},
+      styledComponent: {
+        ...getListRoundedBorderAndReturnCSSStyledComponent(spacerDefault),
+        ...getListBorderWidthWithSpacerAndReturnCSSStyledComponent(
+          spacerDefault,
+        ),
+      },
     };
     result.default.colors = theme.colors;
     for (const propertyColor in theme.colors) {
@@ -388,6 +511,13 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
       result.default.borderColor = {
         ...result.default.borderColor,
         ...getListStyleBorderWithColor(
+          propertyColor,
+          theme.colors[propertyColor],
+        ),
+      };
+      result.default.styledComponent = {
+        ...result.default.styledComponent,
+        ...getListStyleBorderWithColorAndReturnCSSStyledComponent(
           propertyColor,
           theme.colors[propertyColor],
         ),
@@ -672,6 +802,12 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
           },
         },
         styleSheet: {},
+        styledComponent: {
+          ...getListRoundedBorderAndReturnCSSStyledComponent(spacerDefault),
+          ...getListBorderWidthWithSpacerAndReturnCSSStyledComponent(
+            spacerDefault,
+          ),
+        },
       },
     };
     for (const propertyColor in listTheme[propertyTheme].colors) {
@@ -686,6 +822,13 @@ export default (listTheme?: ListDynamicTheme): ListTheme => {
       result[propertyTheme].borderColor = {
         ...result[propertyTheme].borderColor,
         ...getListStyleBorderWithColor(
+          propertyColor,
+          listTheme[propertyTheme].colors[propertyColor],
+        ),
+      };
+      result[propertyTheme].styledComponent = {
+        ...result[propertyTheme].styledComponent,
+        ...getListStyleBorderWithColorAndReturnCSSStyledComponent(
           propertyColor,
           listTheme[propertyTheme].colors[propertyColor],
         ),
