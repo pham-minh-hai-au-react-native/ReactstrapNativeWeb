@@ -9,7 +9,6 @@ import Font from './font/index';
 import Flex from './flex/index';
 import loadTheme from './utils/loadTheme';
 import {ListDynamicTheme, ListTheme} from './types';
-
 export const buildTheme = (listTheme?: ListDynamicTheme) => {
   const themes: ListTheme = loadTheme(listTheme);
   console.log('in ra themes');

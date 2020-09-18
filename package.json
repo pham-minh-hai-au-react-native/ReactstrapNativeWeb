@@ -9,7 +9,8 @@
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx --fix",
     "pack": "npm run build && npm pack",
     "test": "jest --no-cache",
-    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "sonar": "node sonar-project.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "prettier": "^2.0.4",
     "react": "16.13.1",
     "react-native": "0.63.2",
+    "sonarqube-scanner": "^2.7.0",
     "ts-jest": "^26.3.0",
     "typescript": "^3.8.3"
   },
@@ -63,8 +65,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint"
+      "pre-commit": "npm run lint && npm run sonar",
+      "pre-push": "npm run lint && npm run sonar"
     }
   },
   "lint-staged": {
@@ -76,5 +78,10 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "jestSonar": {
+    "reportPath": "reports",
+    "reportFile": "test-report.xml",
+    "indent": 4
   }
 }
