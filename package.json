@@ -8,7 +8,7 @@
     "build": "rimraf lib && eslint ./src --ext .js,.jsx,.ts,.tsx && tsc --project tsconfig.json",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx --fix",
     "pack": "npm run build && npm pack",
-    "test": "jest --no-cache",
+    "test": "jest",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "sonar": "sonarqube-verify"
   },
@@ -39,7 +39,6 @@
     "@typescript-eslint/parser": "^2.27.0",
     "babel-plugin-styled-components": "^1.11.1",
     "eslint": "^6.5.1",
-    "husky": "^4.3.0",
     "jest": "^26.4.2",
     "prettier": "^2.0.4",
     "react": "16.13.1",
@@ -63,20 +62,5 @@
     "colors-regex": "^2.0.0",
     "react-native-fit-image": "^1.5.5",
     "styled-components": "^5.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "docker-compose up -d"
-    }
-  },
-  "lint-staged": {
-    "*.+(js|jsx)": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.+(ts|tsx)": [
-      "eslint --fix",
-      "git add"
-    ]
   }
 }
