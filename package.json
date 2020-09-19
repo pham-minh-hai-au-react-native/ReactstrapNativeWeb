@@ -66,10 +66,15 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "docker-compose up"
     }
   },
   "lint-staged": {
     "*.+(js|jsx)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(ts|tsx)": [
       "eslint --fix",
       "git add"
     ]
