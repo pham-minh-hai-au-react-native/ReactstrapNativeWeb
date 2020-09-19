@@ -66,16 +66,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint"
     }
   },
   "lint-staged": {
     "*.+(js|jsx)": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.+(ts|tsx)": [
       "eslint --fix",
       "git add"
     ]
