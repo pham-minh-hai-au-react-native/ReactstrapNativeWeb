@@ -5,11 +5,13 @@ services:
     image: node:14-alpine
     restart: unless-stopped
     working_dir: /app
+    build:
+      context: ./
+      dockerfile: .docker/app/Dockerfile
     volumes:
       - ./:/app
       - /app/node_modules
-    command:
-      - npm run lint
+    command: "npm run lint"
 #  sonarqube:
 #    image: sonarqube
 #    depends_on:
